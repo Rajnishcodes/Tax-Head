@@ -1,0 +1,746 @@
+/* =========================================================
+   GST HERO
+   Component-specific styles only.
+   ========================================================= */
+
+.gst-hero {
+  position: relative;
+
+  width: 100%;
+
+  padding: 145px 0 90px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 82% 24%,
+      rgba(37, 99, 235, 0.12),
+      transparent 32%
+    ),
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f7fbff 100%
+    );
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.gst-hero__container {
+  width: min(100% - 44px, 1280px);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 0.92fr);
+
+  align-items: center;
+
+  gap: 70px;
+}
+
+
+/* =========================================================
+   LEFT CONTENT
+   ========================================================= */
+
+.gst-hero__content {
+  min-width: 0;
+  margin-bottom: 110px;
+}
+
+
+/* Eyebrow */
+
+.gst-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 20px;
+
+  padding: 8px 13px;
+
+  border-radius: 999px;
+
+  background: #eff6ff;
+
+  color: var(--gst-primary);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+
+/* Heading */
+
+.gst-hero__title {
+  margin: 0;
+
+  color: var(--gst-primary-dark);
+
+  font-size: clamp(46px, 5.2vw, 72px);
+
+  line-height: 1.02;
+
+  letter-spacing: -0.055em;
+
+  font-weight: 800;
+}
+
+.gst-hero__title span {
+  background:
+    linear-gradient(
+      90deg,
+      var(--gst-primary),
+      var(--gst-secondary)
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+
+/* Description */
+
+.gst-hero__description {
+  max-width: 600px;
+
+  margin: 22px 0 28px;
+
+  color: var(--gst-text-muted);
+
+  font-size: 17px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.gst-hero__actions {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+
+/* Primary */
+
+.gst-hero__primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  min-height: 54px;
+
+  padding: 0 22px;
+
+  border-radius: 12px;
+
+  background: var(--gst-primary);
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 12px 25px rgba(37, 99, 235, 0.20);
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.gst-hero__primary-button:hover {
+  background: #1d4ed8;
+
+  color: #ffffff;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 16px 30px rgba(37, 99, 235, 0.25);
+}
+
+
+/* Secondary */
+
+.gst-hero__secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 54px;
+
+  padding: 0 22px;
+
+  border: 1px solid var(--gst-border);
+
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  color: var(--gst-primary-dark);
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.gst-hero__secondary-button:hover {
+  background: #f8fafc;
+
+  border-color: #cbd5e1;
+
+  color: var(--gst-primary-dark);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   TRUST POINTS
+   ========================================================= */
+
+.gst-hero__trust {
+  display: flex;
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 12px 20px;
+
+  margin-top: 28px;
+}
+
+.gst-hero__trust span {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  color: #526079;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+.gst-hero__trust svg {
+  flex-shrink: 0;
+
+  color: var(--gst-success);
+}
+
+
+/* =========================================================
+   DASHBOARD WRAPPER
+   ========================================================= */
+
+.gst-hero__dashboard-wrapper {
+  position: relative;
+
+  min-width: 0;
+
+  padding: 15px 12px 25px;
+}
+
+
+/* Glow */
+
+.gst-hero__dashboard-glow {
+  position: absolute;
+
+  inset: 12% 4% 3%;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(37, 99, 235, 0.25),
+      rgba(20, 184, 166, 0.18)
+    );
+
+  filter: blur(40px);
+
+  pointer-events: none;
+}
+
+
+/* Dashboard */
+
+.gst-hero__dashboard {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  padding: 25px;
+
+  background: #ffffff;
+
+  border: 1px solid #dbe5f2;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 30px 70px rgba(11, 31, 58, 0.15);
+}
+
+
+/* =========================================================
+   DASHBOARD HEADER
+   ========================================================= */
+
+.gst-hero__dashboard-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid var(--gst-border);
+}
+
+.gst-hero__dashboard-header > div {
+  min-width: 0;
+}
+
+.gst-hero__dashboard-header small {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #8a97ab;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+.gst-hero__dashboard-header strong {
+  display: block;
+
+  color: var(--gst-primary-dark);
+
+  font-size: 16px;
+
+  font-weight: 750;
+}
+
+
+/* Active */
+
+.gst-hero__dashboard-status {
+  flex-shrink: 0;
+
+  padding: 6px 9px;
+
+  border-radius: 999px;
+
+  background: #dcfce7;
+
+  color: #15803d;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   DASHBOARD STATS
+   ========================================================= */
+
+.gst-hero__dashboard-stats {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 1px;
+
+  margin: 20px 0;
+
+  overflow: hidden;
+
+  border: 1px solid var(--gst-border);
+
+  border-radius: 14px;
+
+  background: var(--gst-border);
+}
+
+.gst-hero__dashboard-stat {
+  min-width: 0;
+
+  padding: 16px;
+
+  background: #ffffff;
+}
+
+.gst-hero__dashboard-stat span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #8a97ab;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+.gst-hero__dashboard-stat strong {
+  display: block;
+
+  color: var(--gst-primary-dark);
+
+  font-size: 15px;
+
+  font-weight: 750;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.gst-hero__progress {
+  padding: 3px 2px 18px;
+}
+
+.gst-hero__progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 9px;
+
+  color: #53617a;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+.gst-hero__progress-header strong {
+  color: var(--gst-primary);
+}
+
+.gst-hero__progress-track {
+  width: 100%;
+
+  height: 8px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: #e8eef7;
+}
+
+.gst-hero__progress-fill {
+  display: block;
+
+  width: 94%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gst-primary),
+      var(--gst-secondary)
+    );
+}
+
+
+/* =========================================================
+   COMPLIANCE ROWS
+   ========================================================= */
+
+.gst-hero__compliance-list {
+  display: grid;
+
+  gap: 8px;
+}
+
+.gst-hero__compliance-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  min-height: 43px;
+
+  padding: 10px 11px;
+
+  border-radius: 10px;
+
+  background: #f8fafc;
+
+  color: #526079;
+
+  font-size: 11px;
+}
+
+.gst-hero__compliance-row > span {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  min-width: 0;
+}
+
+.gst-hero__compliance-row svg {
+  flex-shrink: 0;
+
+  color: var(--gst-primary);
+}
+
+.gst-hero__compliance-row strong {
+  flex-shrink: 0;
+
+  font-size: 10px;
+}
+
+.gst-hero__status-success {
+  color: #15803d;
+}
+
+.gst-hero__status-warning {
+  color: #d97706;
+}
+
+
+/* =========================================================
+   FLOATING LATE FEE
+   ========================================================= */
+
+.gst-hero__late-fee {
+  position: absolute;
+
+  right: -20px;
+  bottom: 32px;
+
+  z-index: 4;
+
+  min-width: 88px;
+
+  padding: 12px 17px;
+
+  border-radius: 13px;
+
+  background: var(--gst-primary-dark);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 15px 30px rgba(11, 31, 58, 0.22);
+}
+
+.gst-hero__late-fee strong {
+  display: block;
+
+  font-size: 16px;
+
+  line-height: 1;
+}
+
+.gst-hero__late-fee small {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #9fb0c9;
+
+  font-size: 9px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+  .gst-hero__container {
+    gap: 45px;
+  }
+
+  .gst-hero__title {
+    font-size: clamp(44px, 5vw, 62px);
+  }
+
+  .gst-hero__description {
+    font-size: 16px;
+  }
+
+  .gst-hero__dashboard {
+    padding: 21px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .gst-hero {
+    padding: 125px 0 70px;
+  }
+
+  .gst-hero__container {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+  .gst-hero__content {
+    text-align: center;
+  }
+
+  .gst-hero__description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .gst-hero__actions,
+  .gst-hero__trust {
+    justify-content: center;
+  }
+
+  .gst-hero__dashboard-wrapper {
+    width: min(100%, 680px);
+
+    margin: 0 auto;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 560px) {
+  .gst-hero {
+    padding: 110px 0 60px;
+  }
+
+  .gst-hero__container {
+    width: calc(100% - 24px);
+
+    gap: 40px;
+  }
+
+  .gst-hero__eyebrow {
+    font-size: 11px;
+  }
+
+  .gst-hero__title {
+    font-size: 43px;
+
+    letter-spacing: -0.05em;
+  }
+
+  .gst-hero__description {
+    font-size: 15px;
+
+    line-height: 1.65;
+  }
+
+  .gst-hero__actions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .gst-hero__primary-button,
+  .gst-hero__secondary-button {
+    width: 100%;
+  }
+
+  .gst-hero__trust {
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+  }
+
+  .gst-hero__dashboard-wrapper {
+    padding: 8px 0 22px;
+  }
+
+  .gst-hero__dashboard {
+    padding: 17px;
+
+    border-radius: 18px;
+  }
+
+  .gst-hero__dashboard-header strong {
+    font-size: 14px;
+  }
+
+  .gst-hero__dashboard-stat {
+    padding: 13px 11px;
+  }
+
+  .gst-hero__dashboard-stat strong {
+    font-size: 12px;
+  }
+
+  .gst-hero__compliance-row {
+    font-size: 10px;
+  }
+
+  .gst-hero__late-fee {
+    right: 5px;
+    bottom: 18px;
+  }
+}

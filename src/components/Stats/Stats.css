@@ -1,0 +1,235 @@
+/* =========================================================
+   GST STATS SECTION
+   ========================================================= */
+
+.gst-stats {
+  width: 100%;
+  padding: 0 0 70px;
+
+  background: #f8fafc;
+
+  color: var(--gst-text);
+}
+
+
+/* =========================================================
+   STATS CARD
+   ========================================================= */
+
+.gst-stats__container {
+  width: min(calc(100% - 200px), 1136px);
+
+  min-height: 134px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  background: #ffffff;
+
+  border: 1px solid #dbe3ed;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 20px rgba(15, 23, 42, 0.035),
+    0 2px 5px rgba(15, 23, 42, 0.025);
+}
+
+
+/* =========================================================
+   STAT ITEM
+   ========================================================= */
+
+.gst-stats__item {
+  min-width: 0;
+
+  padding: 24px 30px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   VALUE
+   ========================================================= */
+
+.gst-stats__value {
+  display: block;
+
+  margin: 0;
+
+  color: #0b1f3a;
+
+  font-size: 38px;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: -0.045em;
+}
+
+
+/* Main number */
+
+.gst-stats__value-main {
+  color: #0b1f3a;
+}
+
+
+/* Blue + / /5 */
+
+.gst-stats__value-accent {
+  color: #2563eb;
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.gst-stats__label {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #52627a;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   LARGE LAPTOP
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .gst-stats__container {
+    width: min(calc(100% - 80px), 1136px);
+  }
+
+  .gst-stats__item {
+    padding: 24px 24px;
+  }
+
+  .gst-stats__value {
+    font-size: 34px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 750px) {
+  .gst-stats {
+    padding-bottom: 55px;
+  }
+
+  .gst-stats__container {
+    width: calc(100% - 40px);
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    min-height: auto;
+
+    border-radius: 16px;
+  }
+
+  .gst-stats__item {
+    min-height: 115px;
+
+    padding: 24px 22px;
+
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .gst-stats__item:nth-child(odd) {
+    border-right: 1px solid #e2e8f0;
+  }
+
+  .gst-stats__item:nth-child(3),
+  .gst-stats__item:nth-child(4) {
+    border-bottom: 0;
+  }
+
+  .gst-stats__value {
+    font-size: 31px;
+  }
+
+  .gst-stats__label {
+    margin-top: 8px;
+
+    font-size: 12px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .gst-stats {
+    padding-bottom: 45px;
+  }
+
+  .gst-stats__container {
+    width: calc(100% - 28px);
+
+    border-radius: 14px;
+  }
+
+  .gst-stats__item {
+    min-height: 105px;
+
+    padding: 20px 16px;
+  }
+
+  .gst-stats__value {
+    font-size: 27px;
+  }
+
+  .gst-stats__label {
+    margin-top: 7px;
+
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .gst-stats__container {
+    width: calc(100% - 20px);
+  }
+
+  .gst-stats__item {
+    min-height: 98px;
+
+    padding: 18px 12px;
+  }
+
+  .gst-stats__value {
+    font-size: 24px;
+  }
+
+  .gst-stats__label {
+    font-size: 10px;
+  }
+}

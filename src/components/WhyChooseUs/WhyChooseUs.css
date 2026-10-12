@@ -1,0 +1,233 @@
+/* =========================================================
+   WHY CHOOSE US SECTION
+   Component: WhyChooseUs
+   ========================================================= */
+
+.why-section {
+  width: 100%;
+  padding: 100px 0;
+  background: #f8fafc;
+}
+
+
+/* =========================================================
+   SECTION CONTAINER
+   ========================================================= */
+
+.why-section .gst-container {
+  width: min(100% - 44px, 1280px);
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   BENEFITS GRID
+   ========================================================= */
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 48px;
+}
+
+
+/* =========================================================
+   BENEFIT CARD
+   ========================================================= */
+
+.why-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+
+  min-height: 150px;
+
+  padding: 25px;
+
+  background: #ffffff;
+
+  border: 1px solid var(--gst-border);
+  border-radius: 18px;
+
+  box-shadow:
+    0 6px 20px rgba(15, 23, 42, 0.035);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+/* Hover */
+
+.why-card:hover {
+  transform: translateY(-3px);
+
+  border-color: #cbd8e8;
+
+  box-shadow:
+    0 14px 30px rgba(15, 23, 42, 0.08);
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.why-card__icon {
+  flex: 0 0 48px;
+
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  background: #eff6ff;
+
+  color: var(--gst-primary);
+
+  border: 1px solid rgba(37, 99, 235, 0.08);
+
+  border-radius: 13px;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.why-card h3 {
+  margin: 1px 0 0;
+
+  color: var(--gst-primary-dark);
+
+  font-size: 16px;
+
+  font-weight: 750;
+
+  line-height: 1.35;
+
+  letter-spacing: -0.015em;
+}
+
+
+.why-card p {
+  margin: 7px 0 0;
+
+  color: var(--gst-text-muted);
+
+  font-size: 13px;
+
+  font-weight: 400;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+  .why-section {
+    padding: 85px 0;
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 750px) {
+  .why-section {
+    padding: 75px 0;
+  }
+
+  .why-section .gst-container {
+    width: calc(100% - 32px);
+  }
+
+  .why-grid {
+    gap: 15px;
+    margin-top: 38px;
+  }
+
+  .why-card {
+    min-height: 140px;
+    padding: 21px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 550px) {
+  .why-section {
+    padding: 65px 0;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  .why-card {
+    min-height: auto;
+
+    padding: 20px;
+
+    border-radius: 15px;
+  }
+
+  .why-card__icon {
+    flex-basis: 44px;
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 12px;
+  }
+
+  .why-card h3 {
+    font-size: 15px;
+  }
+
+  .why-card p {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .why-section .gst-container {
+    width: calc(100% - 24px);
+  }
+
+  .why-card {
+    gap: 12px;
+    padding: 17px;
+  }
+
+  .why-card__icon {
+    flex-basis: 40px;
+
+    width: 40px;
+    height: 40px;
+  }
+}

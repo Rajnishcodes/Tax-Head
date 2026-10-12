@@ -1,0 +1,357 @@
+/* =========================================================
+   CTA SECTION
+   Component: CTA
+   ========================================================= */
+
+.cta-section {
+  width: 100%;
+  padding: 66px 0;
+  background: #f8fafc;
+}
+
+
+/* =========================================================
+   CTA CARD
+   ========================================================= */
+
+.cta-section__container {
+  width: min(100% - 48px, 1136px);
+
+  min-height: 304px;
+
+  margin: 0 auto;
+
+  padding: 54px 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 50px;
+
+  background:
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(37, 99, 235, 0.45),
+      transparent 38%
+    ),
+    linear-gradient(
+      135deg,
+      #0b1633 0%,
+      #111d40 52%,
+      #253e91 100%
+    );
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.12);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.cta-section__content {
+  max-width: 560px;
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.cta-section__eyebrow {
+  display: block;
+
+  color: #dbe7ff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  text-transform: none;
+
+  letter-spacing: 0.01em;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.cta-section__title {
+  margin: 5px 0 0;
+
+  color: #ffffff;
+
+  font-size: clamp(36px, 4vw, 46px);
+
+  font-weight: 800;
+
+  line-height: 1.12;
+
+  letter-spacing: -0.045em;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.cta-section__description {
+  max-width: 520px;
+
+  margin: 14px 0 0;
+
+  color: #cbd5e8;
+
+  font-size: 17px;
+
+  font-weight: 400;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.cta-section__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 12px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   BUTTON BASE
+   ========================================================= */
+
+.cta-section__button {
+  min-height: 54px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 0 25px;
+
+  border-radius: 28px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.cta-section__button--primary {
+  color: #111827;
+
+  background: #f59e0b;
+
+  border: 1px solid #f59e0b;
+
+  box-shadow:
+    0 8px 18px rgba(245, 158, 11, 0.22);
+}
+
+
+.cta-section__button--primary:hover {
+  color: #111827;
+
+  background: #fbbf24;
+
+  border-color: #fbbf24;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 24px rgba(245, 158, 11, 0.3);
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
+
+.cta-section__button--secondary {
+  color: #ffffff;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+
+.cta-section__button--secondary:hover {
+  color: #ffffff;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  border-color: rgba(255, 255, 255, 0.4);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+  .cta-section {
+    padding: 55px 0;
+  }
+
+  .cta-section__container {
+    width: min(100% - 40px, 900px);
+
+    padding: 48px;
+
+    gap: 35px;
+  }
+
+  .cta-section__title {
+    font-size: 38px;
+  }
+
+  .cta-section__description {
+    font-size: 15px;
+  }
+
+  .cta-section__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-section__button {
+    min-width: 160px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .cta-section {
+    padding: 45px 0;
+  }
+
+  .cta-section__container {
+    width: calc(100% - 30px);
+
+    min-height: auto;
+
+    padding: 38px 28px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 28px;
+
+    border-radius: 20px;
+  }
+
+  .cta-section__content {
+    max-width: 100%;
+  }
+
+  .cta-section__title {
+    font-size: 34px;
+  }
+
+  .cta-section__description {
+    font-size: 14px;
+
+    line-height: 1.65;
+  }
+
+  .cta-section__actions {
+    width: 100%;
+
+    flex-direction: row;
+
+    align-items: stretch;
+
+    justify-content: flex-start;
+
+    flex-wrap: wrap;
+  }
+
+  .cta-section__button {
+    min-height: 50px;
+
+    padding: 0 20px;
+
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .cta-section {
+    padding: 35px 0;
+  }
+
+  .cta-section__container {
+    width: calc(100% - 24px);
+
+    padding: 32px 22px;
+
+    border-radius: 18px;
+  }
+
+  .cta-section__eyebrow {
+    font-size: 11px;
+  }
+
+  .cta-section__title {
+    font-size: 30px;
+  }
+
+  .cta-section__description {
+    font-size: 13px;
+  }
+
+  .cta-section__actions {
+    width: 100%;
+
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .cta-section__button {
+    width: 100%;
+  }
+}

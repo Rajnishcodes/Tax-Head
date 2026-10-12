@@ -1,0 +1,333 @@
+/* =========================================================
+   GST SERVICES SECTION
+   ========================================================= */
+
+.gst-services {
+  position: relative;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   SERVICES CONTAINER
+   ========================================================= */
+
+.gst-services__container {
+  position: relative;
+}
+
+
+/* =========================================================
+   SERVICES GRID
+   ========================================================= */
+
+.gst-services__grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   SERVICE CARD
+   ========================================================= */
+
+.gst-services__card {
+  position: relative;
+
+  min-width: 0;
+  min-height: 262px;
+
+  padding: 24px 25px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border: 1px solid var(--gst-border);
+
+  border-radius: 17px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+
+/* =========================================================
+   CARD HOVER
+   ========================================================= */
+
+.gst-services__card:hover {
+  transform: translateY(-5px);
+
+  border-color: #bfd1ee;
+
+  box-shadow: var(--gst-shadow-md);
+}
+
+
+/* =========================================================
+   FEATURED CARD
+   ========================================================= */
+
+.gst-services__card--featured {
+  background: linear-gradient(
+    145deg,
+    #eff6ff 0%,
+    #ffffff 70%
+  );
+
+  border-color: #bfd1ee;
+}
+
+
+/* =========================================================
+   SERVICE ICON
+   ========================================================= */
+
+.gst-services__icon {
+  width: 48px;
+  height: 48px;
+
+  flex: 0 0 48px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 20px;
+
+  color: var(--gst-primary);
+
+  background: #eff6ff;
+
+  border-radius: 13px;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* Icon hover */
+
+.gst-services__card:hover .gst-services__icon {
+  background: #e4efff;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.gst-services__content {
+  flex: 1;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.gst-services__title {
+  margin: 0;
+
+  color: var(--gst-primary-dark);
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  line-height: 1.35;
+
+  letter-spacing: -0.02em;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.gst-services__description {
+  margin: 10px 0 20px;
+
+  color: var(--gst-text-muted);
+
+  font-size: 13px;
+
+  font-weight: 400;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   SERVICE BUTTON
+   ========================================================= */
+
+.gst-services__button {
+  width: fit-content;
+
+  min-height: 40px;
+
+  margin-top: auto;
+
+  padding: 9px 15px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  color: #ffffff;
+
+  background: var(--gst-primary);
+
+  border: 1px solid var(--gst-primary);
+
+  border-radius: 9px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.14);
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* =========================================================
+   BUTTON HOVER
+   ========================================================= */
+
+.gst-services__button:hover {
+  color: #ffffff;
+
+  background: #1d4ed8;
+
+  border-color: #1d4ed8;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 9px 18px rgba(37, 99, 235, 0.22);
+}
+
+
+/* =========================================================
+   BUTTON ARROW
+   ========================================================= */
+
+.gst-services__button svg {
+  flex-shrink: 0;
+
+  transition: transform 0.2s ease;
+}
+
+
+.gst-services__button:hover svg {
+  transform: translateX(3px);
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .gst-services__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+  }
+
+  .gst-services__card {
+    min-height: 250px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .gst-services__grid {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .gst-services__card {
+    min-height: 0;
+
+    padding: 22px;
+
+    border-radius: 15px;
+  }
+
+  .gst-services__icon {
+    margin-bottom: 17px;
+  }
+
+  .gst-services__title {
+    font-size: 16px;
+  }
+
+  .gst-services__description {
+    margin-top: 9px;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+  }
+
+  .gst-services__button {
+    margin-top: 5px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .gst-services__card {
+    padding: 20px;
+  }
+
+  .gst-services__icon {
+    width: 45px;
+    height: 45px;
+
+    flex-basis: 45px;
+  }
+
+  .gst-services__button {
+    min-height: 38px;
+
+    padding: 8px 13px;
+
+    font-size: 11px;
+  }
+}   

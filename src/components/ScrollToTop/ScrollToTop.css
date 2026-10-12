@@ -1,0 +1,1 @@
+.scroll-top{position:fixed;right:22px;bottom:82px;width:40px;height:40px;border:1px solid var(--gst-border);background:#fff;color:var(--gst-primary);border-radius:11px;display:grid;place-items:center;z-index:890;box-shadow:var(--gst-shadow-md)}
