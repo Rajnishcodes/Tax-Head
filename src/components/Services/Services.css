@@ -1,32 +1,38 @@
+
 /* =========================================================
-   GST SERVICES SECTION
+   SERVICES SECTION
    ========================================================= */
 
 .gst-services {
-  position: relative;
-
-  background: #ffffff;
+  padding: 80px 24px 90px;
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(37, 99, 235, 0.035),
+      transparent 35%
+    ),
+    #f8fafc;
 }
-
-
-/* =========================================================
-   SERVICES CONTAINER
-   ========================================================= */
 
 .gst-services__container {
-  position: relative;
+  width: min(100%, 1240px);
+  margin: 0 auto;
+}
+
+.gst-services__heading {
+  max-width: 760px;
+  margin: 0 auto 38px;
+  text-align: center;
 }
 
 
 /* =========================================================
-   SERVICES GRID
+   RESPONSIVE GRID
    ========================================================= */
 
 .gst-services__grid {
   display: grid;
-
   grid-template-columns: repeat(4, minmax(0, 1fr));
-
   gap: 18px;
 }
 
@@ -36,232 +42,223 @@
    ========================================================= */
 
 .gst-services__card {
-  position: relative;
-
-  min-width: 0;
-  min-height: 262px;
-
-  padding: 24px 25px;
+  --gst-service-accent: #2563eb;
+  --gst-service-tint: #eaf0ff;
 
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+
+  min-width: 0;
+  min-height: 232px;
+  padding: 19px 18px 17px;
 
   background: #ffffff;
+  border: 1px solid #dce5f1;
+  border-radius: 14px;
 
-  border: 1px solid var(--gst-border);
-
-  border-radius: 17px;
-
-  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(15, 35, 70, 0.025);
 
   transition:
-    transform 0.25s ease,
     border-color 0.25s ease,
     box-shadow 0.25s ease,
     background-color 0.25s ease;
 }
 
-
-/* =========================================================
-   CARD HOVER
-   ========================================================= */
-
 .gst-services__card:hover {
-  transform: translateY(-5px);
-
-  border-color: #bfd1ee;
-
-  box-shadow: var(--gst-shadow-md);
+  border-color: #c5d6f5;
+  box-shadow: 0 12px 28px rgba(15, 35, 70, 0.07);
 }
 
 
+
 /* =========================================================
-   FEATURED CARD
+   SERVICE-SPECIFIC ICON BACKGROUNDS
    ========================================================= */
 
-.gst-services__card--featured {
-  background: linear-gradient(
-    145deg,
-    #eff6ff 0%,
-    #ffffff 70%
-  );
-
-  border-color: #bfd1ee;
+.gst-services__card--blue {
+  --gst-service-accent: #315eea;
+  --gst-service-tint: #edf0ff;
 }
 
+.gst-services__card--orange {
+  --gst-service-accent: #f59e0b;
+  --gst-service-tint: #fff4e5;
+}
 
-/* =========================================================
-   SERVICE ICON
-   ========================================================= */
+.gst-services__card--green {
+  --gst-service-accent: #10b981;
+  --gst-service-tint: #e6faf3;
+}
+
+.gst-services__card--indigo {
+  --gst-service-accent: #5368d8;
+  --gst-service-tint: #eef0ff;
+}
+
+/* Icon container */
 
 .gst-services__icon {
-  width: 48px;
-  height: 48px;
-
-  flex: 0 0 48px;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
 
   display: grid;
   place-items: center;
 
-  margin-bottom: 20px;
+  color: var(--gst-service-accent);
+  background: var(--gst-service-tint);
 
-  color: var(--gst-primary);
-
-  background: #eff6ff;
-
-  border-radius: 13px;
+  border: 1px solid transparent;
+  border-radius: 11px;
 
   transition:
     background-color 0.25s ease,
+    color 0.25s ease,
     transform 0.25s ease;
 }
 
-
-/* Icon hover */
+/* Subtle hover animation */
 
 .gst-services__card:hover .gst-services__icon {
-  background: #e4efff;
-
   transform: translateY(-2px);
 }
 
 
 /* =========================================================
-   CONTENT
+   ICON TILE
    ========================================================= */
 
-.gst-services__content {
-  flex: 1;
+.gst-services__icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--gst-service-accent);
+  background: var(--gst-service-tint);
+
+  border: 1px solid rgba(37, 99, 235, 0.04);
+  border-radius: 11px;
+
+  transition:
+    transform 0.25s ease,
+    border-radius 0.25s ease;
+}
+
+.gst-services__card:hover .gst-services__icon {
+  transform: translateY(-2px);
+  border-radius: 13px;
 }
 
 
 /* =========================================================
-   TITLE
+   CARD TEXT
    ========================================================= */
 
 .gst-services__title {
-  margin: 0;
+  margin: 15px 0 0;
 
-  color: var(--gst-primary-dark);
+  color: #10213c;
 
-  font-size: 16px;
-
-  font-weight: 700;
-
-  line-height: 1.35;
-
-  letter-spacing: -0.02em;
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.45;
+  letter-spacing: -0.025em;
 }
-
-
-/* =========================================================
-   DESCRIPTION
-   ========================================================= */
 
 .gst-services__description {
-  margin: 10px 0 20px;
+  margin: 7px 0 17px;
 
-  color: var(--gst-text-muted);
+  color: #64748b;
 
-  font-size: 13px;
-
+  font-size: 11.5px;
   font-weight: 400;
-
-  line-height: 1.65;
+  line-height: 1.75;
 }
 
 
 /* =========================================================
-   SERVICE BUTTON
+   ENQUIRY BUTTON
    ========================================================= */
 
 .gst-services__button {
-  width: fit-content;
-
-  min-height: 40px;
-
-  margin-top: auto;
-
-  padding: 9px 15px;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  gap: 8px;
+  width: 100%;
+  min-height: 37px;
+  margin-top: auto;
+  padding: 9px 12px;
 
   color: #ffffff;
+  background: #2563eb;
 
-  background: var(--gst-primary);
-
-  border: 1px solid var(--gst-primary);
-
+  border: 1px solid #2563eb;
   border-radius: 9px;
 
-  font-size: 12px;
-
+  font-size: 11px;
   font-weight: 700;
-
-  line-height: 1;
-
+  line-height: 1.3;
+  text-align: center;
   text-decoration: none;
 
-  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.14);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.13);
 
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
-
-
-/* =========================================================
-   BUTTON HOVER
-   ========================================================= */
 
 .gst-services__button:hover {
   color: #ffffff;
-
   background: #1d4ed8;
-
   border-color: #1d4ed8;
+  box-shadow: 0 7px 16px rgba(37, 99, 235, 0.2);
+  transform: translateY(-1px);
+}
 
-  transform: translateY(-2px);
-
-  box-shadow: 0 9px 18px rgba(37, 99, 235, 0.22);
+.gst-services__button:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.35);
+  outline-offset: 3px;
 }
 
 
 /* =========================================================
-   BUTTON ARROW
+   TABLET
    ========================================================= */
 
-.gst-services__button svg {
-  flex-shrink: 0;
+@media (max-width: 1000px) {
+  .gst-services {
+    padding: 68px 20px 76px;
+  }
 
-  transition: transform 0.2s ease;
-}
-
-
-.gst-services__button:hover svg {
-  transform: translateX(3px);
-}
-
-
-/* =========================================================
-   TABLET / SMALL LAPTOP
-   ========================================================= */
-
-@media (max-width: 1100px) {
   .gst-services__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    gap: 18px;
+    gap: 16px;
   }
 
   .gst-services__card {
-    min-height: 250px;
+    min-height: 225px;
+    padding: 20px;
+  }
+
+  .gst-services__title {
+    font-size: 15px;
+  }
+
+  .gst-services__description {
+    font-size: 12px;
+  }
+
+  .gst-services__button {
+    font-size: 12px;
+    min-height: 40px;
   }
 }
 
@@ -270,39 +267,50 @@
    MOBILE
    ========================================================= */
 
-@media (max-width: 600px) {
-  .gst-services__grid {
-    grid-template-columns: 1fr;
+@media (max-width: 520px) {
+  .gst-services {
+    padding: 52px 16px 60px;
+  }
 
-    gap: 15px;
+  .gst-services__heading {
+    margin-bottom: 27px;
+  }
+
+  .gst-services__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 
   .gst-services__card {
-    min-height: 0;
-
-    padding: 22px;
-
-    border-radius: 15px;
+    min-height: 225px;
+    padding: 14px 12px 12px;
+    border-radius: 13px;
   }
 
   .gst-services__icon {
-    margin-bottom: 17px;
+    width: 35px;
+    height: 35px;
+    flex-basis: 35px;
   }
 
   .gst-services__title {
-    font-size: 16px;
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 1.5;
   }
 
   .gst-services__description {
-    margin-top: 9px;
-
-    font-size: 13px;
-
-    line-height: 1.65;
+    margin-top: 6px;
+    margin-bottom: 14px;
+    font-size: 10.5px;
+    line-height: 1.7;
   }
 
   .gst-services__button {
-    margin-top: 5px;
+    min-height: 35px;
+    padding: 7px 5px;
+    font-size: 10px;
+    border-radius: 8px;
   }
 }
 
@@ -311,23 +319,38 @@
    SMALL MOBILE
    ========================================================= */
 
-@media (max-width: 380px) {
-  .gst-services__card {
-    padding: 20px;
+@media (max-width: 350px) {
+  .gst-services__grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .gst-services__icon {
-    width: 45px;
-    height: 45px;
+  .gst-services__card {
+    min-height: 205px;
+    padding: 18px;
+  }
 
-    flex-basis: 45px;
+  .gst-services__title {
+    font-size: 14px;
+  }
+
+  .gst-services__description {
+    font-size: 12px;
   }
 
   .gst-services__button {
-    min-height: 38px;
-
-    padding: 8px 13px;
-
-    font-size: 11px;
+    font-size: 12px;
   }
-}   
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .gst-services__card,
+  .gst-services__icon,
+  .gst-services__button {
+    transition: none;
+  }
+}

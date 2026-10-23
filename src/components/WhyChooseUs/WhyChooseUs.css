@@ -1,129 +1,252 @@
+
 /* =========================================================
    WHY CHOOSE US SECTION
-   Component: WhyChooseUs
    ========================================================= */
 
-.why-section {
-  width: 100%;
-  padding: 100px 0;
+.gst-why {
+  --gst-why-navy: #0b1f3a;
+  --gst-why-blue: #2563eb;
+  --gst-why-muted: #64748b;
+  --gst-why-border: #dce5f1;
+
+  padding: 76px 24px 90px;
   background: #f8fafc;
 }
 
-
-/* =========================================================
-   SECTION CONTAINER
-   ========================================================= */
-
-.why-section .gst-container {
-  width: min(100% - 44px, 1280px);
+.gst-why__container {
+  width: min(100%, 1136px);
   margin: 0 auto;
 }
 
 
 /* =========================================================
-   BENEFITS GRID
+   SECTION HEADING
    ========================================================= */
 
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 48px;
+.gst-why__heading {
+  max-width: 760px;
+  margin: 0 auto 40px;
+  text-align: center;
 }
 
 
 /* =========================================================
-   BENEFIT CARD
+   ALTERNATING CARD LIST
    ========================================================= */
 
-.why-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
+.gst-why__list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+}
 
-  min-height: 150px;
 
-  padding: 25px;
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.gst-why__card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: stretch;
+  gap: 40px;
+
+  min-height: 290px;
+  padding: 32px;
 
   background: #ffffff;
+  border: 1px solid var(--gst-why-border);
+  border-radius: 21px;
 
-  border: 1px solid var(--gst-border);
-  border-radius: 18px;
-
-  box-shadow:
-    0 6px 20px rgba(15, 23, 42, 0.035);
+  box-shadow: 0 3px 12px rgba(15, 35, 70, 0.025);
 
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.gst-why__card:hover {
+  border-color: #c5d7f4;
+  box-shadow: 0 14px 35px rgba(15, 35, 70, 0.065);
 }
 
 
-/* Hover */
+/* Alternate the visual and content positions */
 
-.why-card:hover {
-  transform: translateY(-3px);
-
-  border-color: #cbd8e8;
-
-  box-shadow:
-    0 14px 30px rgba(15, 23, 42, 0.08);
+.gst-why__card--reversed .gst-why__visual {
+  order: 2;
 }
 
-
-/* =========================================================
-   ICON
-   ========================================================= */
-
-.why-card__icon {
-  flex: 0 0 48px;
-
-  width: 48px;
-  height: 48px;
-
-  display: grid;
-  place-items: center;
-
-  background: #eff6ff;
-
-  color: var(--gst-primary);
-
-  border: 1px solid rgba(37, 99, 235, 0.08);
-
-  border-radius: 13px;
+.gst-why__card--reversed .gst-why__content {
+  order: 1;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 
 /* =========================================================
-   CARD CONTENT
+   LEFT / RIGHT VISUAL PANEL
    ========================================================= */
 
-.why-card h3 {
-  margin: 1px 0 0;
+.gst-why__visual {
+  position: relative;
+  isolation: isolate;
 
-  color: var(--gst-primary-dark);
+  min-height: 222px;
 
-  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 20% 15%,
+      rgba(37, 99, 235, 0.09),
+      transparent 48%
+    ),
+    radial-gradient(
+      circle at 90% 90%,
+      rgba(20, 184, 166, 0.07),
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      #eaf1fd 0%,
+      #f7faff 58%,
+      #fffaf2 100%
+    );
+
+  border: 1px solid #dce5f1;
+  border-radius: 20px;
+}
+
+.gst-why__visual-glow {
+  position: absolute;
+  z-index: -1;
+
+  width: 130px;
+  height: 130px;
+
+  background: rgba(37, 99, 235, 0.15);
+  border-radius: 50%;
+  filter: blur(40px);
+
+  transition:
+    transform 0.4s ease,
+    background-color 0.4s ease;
+}
+
+.gst-why__card:hover .gst-why__visual-glow {
+  transform: scale(1.35);
+  background: rgba(20, 184, 166, 0.16);
+}
+
+
+/* =========================================================
+   ICON TILE
+   ========================================================= */
+
+.gst-why__icon-card {
+  width: 80px;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #2149c6;
+  background: #ffffff;
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 23px;
+
+  box-shadow: 0 12px 28px rgba(37, 70, 150, 0.13);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.gst-why__card:hover .gst-why__icon-card {
+  transform: translateY(-4px);
+  box-shadow: 0 17px 32px rgba(37, 70, 150, 0.17);
+}
+
+
+/* =========================================================
+   TEXT CONTENT
+   ========================================================= */
+
+.gst-why__content {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 20px 10px 20px 0;
+}
+
+.gst-why__number {
+  margin-bottom: 12px;
+
+  color: var(--gst-why-blue);
+
+  font-size: 12px;
   font-weight: 750;
+  line-height: 1;
+  letter-spacing: 0.07em;
+}
 
-  line-height: 1.35;
+.gst-why__title {
+  margin: 0;
 
-  letter-spacing: -0.015em;
+  color: var(--gst-why-navy);
+
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: -0.045em;
+}
+
+.gst-why__description {
+  max-width: 540px;
+  margin: 12px 0 0;
+
+  color: var(--gst-why-muted);
+
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.85;
 }
 
 
-.why-card p {
-  margin: 7px 0 0;
+/* =========================================================
+   SMALL DECORATIVE ACCENT
+   ========================================================= */
 
-  color: var(--gst-text-muted);
+.gst-why__accent {
+  display: block;
 
-  font-size: 13px;
+  width: 38px;
+  height: 3px;
 
-  font-weight: 400;
+  margin-top: 21px;
 
-  line-height: 1.7;
+  background: var(--gst-why-blue);
+  border-radius: 99px;
+
+  transition:
+    width 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.gst-why__card:hover .gst-why__accent {
+  width: 60px;
+  background: #14b8a6;
 }
 
 
@@ -131,38 +254,46 @@
    TABLET
    ========================================================= */
 
-@media (max-width: 1050px) {
-  .why-section {
-    padding: 85px 0;
+@media (max-width: 760px) {
+  .gst-why {
+    padding: 60px 20px 70px;
   }
 
-  .why-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-
-/* =========================================================
-   SMALL TABLET
-   ========================================================= */
-
-@media (max-width: 750px) {
-  .why-section {
-    padding: 75px 0;
+  .gst-why__heading {
+    margin-bottom: 32px;
   }
 
-  .why-section .gst-container {
-    width: calc(100% - 32px);
+  .gst-why__card {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 24px;
+    min-height: 230px;
+    padding: 20px;
+    border-radius: 18px;
   }
 
-  .why-grid {
-    gap: 15px;
-    margin-top: 38px;
+  .gst-why__visual {
+    min-height: 185px;
+    border-radius: 16px;
   }
 
-  .why-card {
-    min-height: 140px;
-    padding: 21px;
+  .gst-why__icon-card {
+    width: 66px;
+    height: 66px;
+    border-radius: 19px;
+  }
+
+  .gst-why__content {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .gst-why__title {
+    font-size: 23px;
+  }
+
+  .gst-why__description {
+    font-size: 13px;
+    line-height: 1.75;
   }
 }
 
@@ -171,63 +302,76 @@
    MOBILE
    ========================================================= */
 
-@media (max-width: 550px) {
-  .why-section {
-    padding: 65px 0;
+@media (max-width: 540px) {
+  .gst-why {
+    padding: 48px 15px 56px;
   }
 
-  .why-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    margin-top: 32px;
+  .gst-why__list {
+    gap: 16px;
   }
 
-  .why-card {
+  .gst-why__card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
     min-height: auto;
-
-    padding: 20px;
-
-    border-radius: 15px;
+    padding: 12px;
   }
 
-  .why-card__icon {
-    flex-basis: 44px;
+  /* Keep the visual first on mobile for every card */
 
-    width: 44px;
-    height: 44px;
-
-    border-radius: 12px;
+  .gst-why__card--reversed .gst-why__visual {
+    order: 0;
   }
 
-  .why-card h3 {
-    font-size: 15px;
+  .gst-why__card--reversed .gst-why__content {
+    order: 0;
   }
 
-  .why-card p {
-    font-size: 12px;
-    line-height: 1.65;
+  .gst-why__visual {
+    min-height: 155px;
+    border-radius: 13px;
+  }
+
+  .gst-why__icon-card {
+    width: 62px;
+    height: 62px;
+    border-radius: 18px;
+  }
+
+  .gst-why__content {
+    padding: 21px 7px 10px;
+  }
+
+  .gst-why__number {
+    margin-bottom: 9px;
+    font-size: 11px;
+  }
+
+  .gst-why__title {
+    font-size: 24px;
+  }
+
+  .gst-why__description {
+    margin-top: 9px;
+    font-size: 13px;
+  }
+
+  .gst-why__accent {
+    margin-top: 15px;
   }
 }
 
 
 /* =========================================================
-   SMALL MOBILE
+   REDUCED MOTION
    ========================================================= */
 
-@media (max-width: 380px) {
-  .why-section .gst-container {
-    width: calc(100% - 24px);
-  }
-
-  .why-card {
-    gap: 12px;
-    padding: 17px;
-  }
-
-  .why-card__icon {
-    flex-basis: 40px;
-
-    width: 40px;
-    height: 40px;
+@media (prefers-reduced-motion: reduce) {
+  .gst-why__card,
+  .gst-why__visual-glow,
+  .gst-why__icon-card,
+  .gst-why__accent {
+    transition: none;
   }
 }

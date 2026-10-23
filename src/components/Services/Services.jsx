@@ -1,65 +1,83 @@
-import { ArrowRight } from "lucide-react";
+
+import { motion, useReducedMotion } from "framer-motion";
 import { services } from "../../data/siteData";
 import SectionHeading from "../SectionHeading";
 import "./Services.css";
 
 export default function Services() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <section
       id="services"
-      className="gst-section gst-section--white gst-services"
+      className="gst-services"
+      aria-labelledby="gst-services__title"
     >
-      <div className="gst-container gst-services__container">
-        <SectionHeading
-          eyebrow="Our Services"
-          title="Everything you need to start and run a compliant business."
-          description="From GST registration to company incorporation and brand protection, get expert support under one roof."
-        />
+      <div className="gst-services__container">
+        <motion.div
+          className="gst-services__heading"
+          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.55 }}
+        >
+          <SectionHeading
+            eyebrow="OUR SERVICES"
+            title="Everything your business needs, in one place."
+            description="Explore registration, compliance and business support services with guidance at every step."
+          />
+        </motion.div>
 
         <div className="gst-services__grid">
-          {services.map((service) => {
+          {services.map((service, index) => {
             const Icon = service.icon;
 
             return (
-              <article
-                className={`gst-services__card ${
-                  service.featured
-                    ? "gst-services__card--featured"
-                    : ""
-                }`}
+              <motion.article
                 key={service.title}
+                className={`gst-services__card gst-services__card--${service.color || "blue"}`}
+                initial={
+                  reduceMotion ? false : { opacity: 0, y: 20 }
+                }
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{
+                  duration: 0.45,
+                  delay: reduceMotion ? 0 : (index % 4) * 0.07,
+                }}
+                whileHover={
+                  reduceMotion
+                    ? undefined
+                    : {
+                        y: -5,
+                        transition: { duration: 0.2 },
+                      }
+                }
               >
-                {/* Service Icon */}
                 <div className="gst-services__icon">
-                  <Icon size={23} strokeWidth={2} />
+                  <Icon
+                    size={19}
+                    strokeWidth={1.8}
+                    aria-hidden="true"
+                  />
                 </div>
 
-                {/* Service Content */}
-                <div className="gst-services__content">
-                  <h3 className="gst-services__title">
-                    {service.title}
-                  </h3>
+                <h3 className="gst-services__title">
+                  {service.title}
+                </h3>
 
-                  <p className="gst-services__description">
-                    {service.description}
-                  </p>
-                </div>
+                <p className="gst-services__description">
+                  {service.description}
+                </p>
 
-                {/* Service Button */}
                 <a
                   href="#contact"
                   className="gst-services__button"
-                  aria-label={`Explore ${service.title}`}
+                  aria-label={`Make an enquiry about ${service.title}`}
                 >
-                  <span>Explore Service</span>
-
-                  <ArrowRight
-                    size={16}
-                    strokeWidth={2}
-                    aria-hidden="true"
-                  />
+                  Make an Enquiry
                 </a>
-              </article>
+              </motion.article>
             );
           })}
         </div>

@@ -1,58 +1,162 @@
+
 /* =========================================================
-   GST STATS SECTION
+   GST STATS — SECTION BACKGROUND
    ========================================================= */
 
 .gst-stats {
+  position: relative;
+  isolation: isolate;
+  z-index: 2;
+
   width: 100%;
-  padding: 0 0 70px;
+  margin: 0;
+  padding: 28px 24px 64px;
 
-  background: #f8fafc;
+  overflow: hidden;
+  background: #f7f9fc;
+}
 
-  color: var(--gst-text);
+.gst-stats__background {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(37, 99, 235, 0.055),
+      transparent 58%
+    ),
+    linear-gradient(
+      180deg,
+      #f7f9fc 0%,
+      #ffffff 55%,
+      #f8faff 100%
+    );
+
+  pointer-events: none;
 }
 
 
 /* =========================================================
-   STATS CARD
+   MAIN CONTAINER
    ========================================================= */
 
 .gst-stats__container {
-  width: min(calc(100% - 200px), 1136px);
-
-  min-height: 134px;
-
-  margin: 0 auto;
+  width: min(100%, 1136px);
+  min-height: 144px;
 
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
 
-  background: #ffffff;
+  margin: 0 auto;
+  padding: 0;
 
-  border: 1px solid #dbe3ed;
+  overflow: hidden;
 
-  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.97);
+
+  border: 1px solid #dce5f1;
+  border-radius: 20px;
 
   box-shadow:
-    0 8px 20px rgba(15, 23, 42, 0.035),
-    0 2px 5px rgba(15, 23, 42, 0.025);
+    0 12px 30px rgba(15, 35, 70, 0.045),
+    0 2px 6px rgba(15, 35, 70, 0.025);
+
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.gst-stats__container:hover {
+  border-color: #cbd8ec;
+
+  box-shadow:
+    0 18px 40px rgba(15, 35, 70, 0.065),
+    0 3px 8px rgba(15, 35, 70, 0.025);
 }
 
 
 /* =========================================================
-   STAT ITEM
+   STATISTIC ITEM
    ========================================================= */
 
 .gst-stats__item {
-  min-width: 0;
+  position: relative;
 
-  padding: 24px 30px;
+  min-width: 0;
+  min-height: 144px;
 
   display: flex;
   flex-direction: column;
-
+  align-items: flex-start;
   justify-content: center;
 
-  text-align: left;
+  padding: 22px clamp(20px, 2.5vw, 34px);
+
+  background: transparent;
+
+  transition: background-color 0.25s ease;
+}
+
+.gst-stats__item:not(:last-child)::after {
+  position: absolute;
+  top: 25%;
+  right: 0;
+  bottom: 25%;
+
+  width: 1px;
+  content: "";
+
+  background: #e7edf5;
+}
+
+.gst-stats__item:hover {
+  background: #fbfdff;
+}
+
+
+/* =========================================================
+   TOP LABEL AND INDICATOR
+   ========================================================= */
+
+.gst-stats__topline {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+}
+
+.gst-stats__index {
+  color: #8391a8;
+
+  font-size: 10px;
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: 0.14em;
+}
+
+.gst-stats__indicator {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+
+  background: #2563eb;
+  border-radius: 50%;
+
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.09);
+
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.gst-stats__item:hover .gst-stats__indicator {
+  background: #14b8a6;
+  box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.11);
 }
 
 
@@ -62,174 +166,150 @@
 
 .gst-stats__value {
   display: block;
-
-  margin: 0;
+  max-width: 100%;
 
   color: #0b1f3a;
 
-  font-size: 38px;
-
+  font-size: clamp(29px, 3.1vw, 39px);
   font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.065em;
 
-  line-height: 1;
-
-  letter-spacing: -0.045em;
-}
-
-
-/* Main number */
-
-.gst-stats__value-main {
-  color: #0b1f3a;
-}
-
-
-/* Blue + / /5 */
-
-.gst-stats__value-accent {
-  color: #2563eb;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 
 /* =========================================================
-   LABEL
+   DESCRIPTION
    ========================================================= */
 
 .gst-stats__label {
   display: block;
 
-  margin-top: 10px;
+  margin-top: 8px;
 
-  color: #52627a;
+  color: #536783;
 
-  font-size: 13px;
-
+  font-size: 12px;
   font-weight: 500;
-
-  line-height: 1.4;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
 }
 
 
 /* =========================================================
-   LARGE LAPTOP
+   LARGE TABLETS
    ========================================================= */
 
-@media (max-width: 1100px) {
-  .gst-stats__container {
-    width: min(calc(100% - 80px), 1136px);
-  }
-
-  .gst-stats__item {
-    padding: 24px 24px;
-  }
-
-  .gst-stats__value {
-    font-size: 34px;
-  }
-}
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
-@media (max-width: 750px) {
+@media (max-width: 900px) {
   .gst-stats {
-    padding-bottom: 55px;
+    padding: 24px 20px 52px;
   }
 
   .gst-stats__container {
-    width: calc(100% - 40px);
-
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    min-height: auto;
-
-    border-radius: 16px;
+    min-height: 132px;
   }
 
   .gst-stats__item {
-    min-height: 115px;
-
-    padding: 24px 22px;
-
-    border-bottom: 1px solid #e2e8f0;
-  }
-
-  .gst-stats__item:nth-child(odd) {
-    border-right: 1px solid #e2e8f0;
-  }
-
-  .gst-stats__item:nth-child(3),
-  .gst-stats__item:nth-child(4) {
-    border-bottom: 0;
+    min-height: 132px;
+    padding: 20px;
   }
 
   .gst-stats__value {
-    font-size: 31px;
+    font-size: clamp(27px, 3.4vw, 34px);
   }
 
   .gst-stats__label {
-    margin-top: 8px;
-
-    font-size: 12px;
-  }
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 480px) {
-  .gst-stats {
-    padding-bottom: 45px;
-  }
-
-  .gst-stats__container {
-    width: calc(100% - 28px);
-
-    border-radius: 14px;
-  }
-
-  .gst-stats__item {
-    min-height: 105px;
-
-    padding: 20px 16px;
-  }
-
-  .gst-stats__value {
-    font-size: 27px;
-  }
-
-  .gst-stats__label {
-    margin-top: 7px;
-
     font-size: 11px;
   }
 }
 
 
 /* =========================================================
-   VERY SMALL DEVICES
+   TABLET AND MOBILE
    ========================================================= */
 
-@media (max-width: 360px) {
+@media (max-width: 650px) {
+  .gst-stats {
+    padding: 20px 18px 44px;
+  }
+
   .gst-stats__container {
-    width: calc(100% - 20px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: auto;
+
+    border-radius: 18px;
   }
 
   .gst-stats__item {
-    min-height: 98px;
+    min-height: 126px;
+    padding: 20px 22px;
+  }
 
-    padding: 18px 12px;
+  .gst-stats__item:nth-child(2)::after {
+    display: none;
+  }
+
+  .gst-stats__item:nth-child(-n + 2) {
+    border-bottom: 1px solid #e7edf5;
   }
 
   .gst-stats__value {
-    font-size: 24px;
+    font-size: clamp(28px, 6vw, 35px);
   }
 
   .gst-stats__label {
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .gst-stats {
+    padding: 16px 12px 36px;
+  }
+
+  .gst-stats__container {
+    border-radius: 15px;
+  }
+
+  .gst-stats__item {
+    min-height: 112px;
+    padding: 16px 13px;
+  }
+
+  .gst-stats__topline {
+    margin-bottom: 10px;
+  }
+
+  .gst-stats__value {
+    font-size: clamp(24px, 7.2vw, 29px);
+  }
+
+  .gst-stats__label {
+    margin-top: 6px;
     font-size: 10px;
+  }
+
+  .gst-stats__index {
+    font-size: 9px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .gst-stats__container,
+  .gst-stats__item,
+  .gst-stats__indicator {
+    transition: none;
   }
 }

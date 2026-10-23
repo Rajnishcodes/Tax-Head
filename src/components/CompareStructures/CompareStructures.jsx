@@ -1,121 +1,116 @@
+
+import { motion, useReducedMotion } from "framer-motion";
+import { comparisons } from "../../data/siteData";
+import SectionHeading from "../SectionHeading";
 import "./CompareStructures.css";
 
-const comparisonData = [
-  {
-    factor: "Liability Protection",
-    privateLimited: "Strong",
-    llp: "Strong",
-    opc: "Strong",
-  },
-  {
-    factor: "Compliance",
-    privateLimited: "Moderate",
-    llp: "Moderate",
-    opc: "Higher",
-  },
-  {
-    factor: "Tax Benefits",
-    privateLimited: "Available",
-    llp: "Available",
-    opc: "Available",
-  },
-  {
-    factor: "Investment Opportunities",
-    privateLimited: "Excellent",
-    llp: "Limited",
-    opc: "Limited",
-  },
-  {
-    factor: "Suitable Business Size",
-    privateLimited: "Growing & Funded",
-    llp: "Service / Small Biz",
-    opc: "Solo Founders",
-  },
+const columns = [
+  "Feature",
+  "Private Limited",
+  "LLP",
+  "One Person Company",
 ];
 
 export default function CompareStructures() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <section
       id="compare-structures"
-      className="compare-structures-section"
+      className="gst-compare"
+      aria-labelledby="gst-compare__title"
     >
-      <div className="compare-structures-section__container">
+      <div className="gst-compare__container">
+        <motion.div
+          className="gst-compare__heading"
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.45 }}
+        >
+          <SectionHeading
+            eyebrow="COMPARE BUSINESS STRUCTURES"
+            title="Choose the right structure for your business."
+            description="Compare key factors to understand which business structure may suit your goals."
+          />
+        </motion.div>
 
-        {/* Section Heading */}
-        <div className="compare-structures-heading">
-
-          <span className="compare-structures-heading__eyebrow">
-            <span className="compare-structures-heading__line"></span>
-            Choose Your Structure
-          </span>
-
-          <h2 className="compare-structures-heading__title">
-            Compare the right business
-            <br />
-            structure for your goals.
-          </h2>
-
-          <p className="compare-structures-heading__description">
-            A quick view of the factors that commonly matter when choosing
-            a structure.
-          </p>
-
-        </div>
-
-
-        {/* Comparison Table */}
-        <div className="compare-structures-table-wrapper">
-
-          <table className="compare-structures-table">
-
+        <motion.div
+          className="gst-compare__table-wrap"
+          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.5, delay: 0.08 }}
+          role="region"
+          aria-label="Business structure comparison table"
+          tabIndex={0}
+        >
+          <table className="gst-compare__table">
             <thead>
               <tr>
-                <th scope="col">
-                  Factor
-                </th>
-
-                <th scope="col">
-                  Private Limited
-                </th>
-
-                <th scope="col">
-                  LLP
-                </th>
-
-                <th scope="col">
-                  OPC
-                </th>
+                {columns.map((column, index) => (
+                  <th
+                    key={column}
+                    scope="col"
+                    className={
+                      index === 1
+                        ? "gst-compare__header gst-compare__header--featured"
+                        : "gst-compare__header"
+                    }
+                  >
+                    {column}
+                  </th>
+                ))}
               </tr>
             </thead>
 
             <tbody>
-              {comparisonData.map((item) => (
-                <tr key={item.factor}>
+              {comparisons.map((row, rowIndex) => (
+                <tr key={row[0]}>
+                  {row.map((value, columnIndex) => {
+                    const isFeature = columnIndex === 0;
+                    const isBusinessSize =
+                      rowIndex === comparisons.length - 1;
 
-                  <th scope="row">
-                    {item.factor}
-                  </th>
-
-                  <td>
-                    {item.privateLimited}
-                  </td>
-
-                  <td>
-                    {item.llp}
-                  </td>
-
-                  <td>
-                    {item.opc}
-                  </td>
-
+                    return (
+                      <td
+                        key={`${row[0]}-${columnIndex}`}
+                        className={[
+                          "gst-compare__cell",
+                          columnIndex === 1
+                            ? "gst-compare__cell--featured"
+                            : "",
+                          isFeature
+                            ? "gst-compare__cell--feature"
+                            : "",
+                        ]
+                          .filter(Boolean)
+                          .join(" ")}
+                      >
+                        {isFeature ? (
+                          value
+                        ) : (
+                          <span className="gst-compare__value">
+                            <span
+                              className={[
+                                "gst-compare__dot",
+                                isBusinessSize
+                                  ? "gst-compare__dot--neutral"
+                                  : "gst-compare__dot--success",
+                              ].join(" ")}
+                              aria-hidden="true"
+                            />
+                            <span>{value}</span>
+                          </span>
+                        )}
+                      </td>
+                    );
+                  })}
                 </tr>
               ))}
             </tbody>
-
           </table>
-
-        </div>
-
+        </motion.div>
       </div>
     </section>
   );
